@@ -2,6 +2,15 @@
 # $ gcloud builds submit . --config=cloudbuild.yaml
 
 steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '--build-arg'
+  - 'version=1.24.0'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/golang-soma:latest'
+  - '.'
+-
 - name: 'gcr.io/cloud-builders/go'
   args: ['version']
   env: ['GOPATH=.']
