@@ -3,12 +3,16 @@
 
 steps:
 - name: 'gcr.io/cloud-builders/go'
+  args: ['version']
+  env: ['GOPATH=.']
+  
+- name: 'gcr.io/cloud-builders/go'
   args: ['install', '.']
-  env: ['PROJECT_ROOT=soma']
+  env: ['GOPATH=.']
 
 - name: 'gcr.io/cloud-builders/go'
-  args: ['build', 'main']
-  env: ['PROJECT_ROOT=soma']
+  args: ['run', 'main']
+  env: ['GOPATH=.']
 
 # images:
 # - 'gcr.io/$PROJECT_ID/golang-soma:latest'
