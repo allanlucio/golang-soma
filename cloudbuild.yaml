@@ -2,11 +2,12 @@
 # $ gcloud builds submit . --config=cloudbuild.yaml
 
 steps:
-- id: go_test
+- id: go_test #testa a aplicação
   name: "gcr.io/cloud-builders/go"
   args: ["test","soma"]
   env: ["GOPATH=."]
-- name: 'gcr.io/cloud-builders/docker'
+
+- name: 'gcr.io/cloud-builders/docker' #Gera uma imagem a partir do projeto
   args:
   - 'build'
   - '--build-arg'
@@ -15,13 +16,13 @@ steps:
   - 'gcr.io/$PROJECT_ID/golang-soma:latest'
   - '.'
 
-- name: 'gcr.io/cloud-builders/go'
+- name: 'gcr.io/cloud-builders/go' #mostra a versão do Go
   args: ['version']
   env: ['GOPATH=.']
 
 
 
-- name: 'gcr.io/cloud-builders/go'
+- name: 'gcr.io/cloud-builders/go' #Executa a soma
   args: ['run', 'soma']
   env: ['GOPATH=.']
 
