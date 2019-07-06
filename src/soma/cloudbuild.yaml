@@ -5,13 +5,9 @@ steps:
 - name: 'gcr.io/cloud-builders/go'
   args: ['version']
   env: ['GOPATH=.']
-  
-- name: 'gcr.io/cloud-builders/go'
-  args: ['install', '.']
-  env: ['GOPATH=.']
 
 - name: 'gcr.io/cloud-builders/go'
-  args: ['run', 'main']
+  args: ['run', 'main.go']
   env: ['GOPATH=.']
 
 # images:
