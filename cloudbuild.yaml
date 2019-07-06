@@ -22,7 +22,7 @@ steps:
 
 
 
-- name: 'gcr.io/cloud-builders/go' #Executa a soma
+- name: 'gcr.io/cloud-builders/go' #Executa a soma.
   args: ['run', 'soma']
   env: ['GOPATH=.']
 
