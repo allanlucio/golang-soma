@@ -15,5 +15,5 @@ steps:
   args: ['run', 'soma']
   env: ['GOPATH=.']
 
-# images:
-# - 'gcr.io/$PROJECT_ID/golang-soma:latest'
+images:
+- 'gcr.io/$PROJECT_ID/golang-soma:latest'
