@@ -10,7 +10,7 @@ steps:
   - '-t'
   - 'gcr.io/$PROJECT_ID/golang-soma:latest'
   - '.'
--
+
 - name: 'gcr.io/cloud-builders/go'
   args: ['version']
   env: ['GOPATH=.']
