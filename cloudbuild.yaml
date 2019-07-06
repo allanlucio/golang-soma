@@ -2,6 +2,10 @@
 # $ gcloud builds submit . --config=cloudbuild.yaml
 
 steps:
+- id: go_test
+  name: "gcr.io/cloud-builders/go"
+  args: ["test","soma"]
+  env: ["GOPATH=."]
 - name: 'gcr.io/cloud-builders/docker'
   args:
   - 'build'
@@ -15,10 +19,7 @@ steps:
   args: ['version']
   env: ['GOPATH=.']
 
-- id: go_test
-  name: "gcr.io/cloud-builders/go"
-  args: ["test","soma"]
-  env: ["GOPATH=."]
+
 
 - name: 'gcr.io/cloud-builders/go'
   args: ['run', 'soma']
